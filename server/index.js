@@ -11,12 +11,16 @@ const PORT = process.env.PORT || 3001;
 
 // ✅ CORS middleware
 app.use(cors({
-  origin: "http://localhost:5173",   // frontend URL
+  origin: [
+    "http://localhost:5173",
+    "https://pastebin-lite-swart.vercel.app"
+  ],  // frontend URL
   methods: ["GET", "POST", "OPTIONS"], // include OPTIONS
-  allowedHeaders: ["Content-Type"],    // allow JSON
+  allowedHeaders: ["Content-Type", "x-test-now-ms"],    // allow JSON
   credentials: true                    // optional
 }));
 
+app.options("*", cors());
 app.use(express.json()); // parse JSON body
 
 // Mount routes

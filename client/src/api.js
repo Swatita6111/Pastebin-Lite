@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3001/api/pastes";
+const API_URL = "https://pastebin-lite-api.vercel.app/api/pastes";
 
 export async function createPaste(data) {
   const response = await fetch(API_URL, {
